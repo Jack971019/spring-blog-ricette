@@ -14,6 +14,7 @@ public class Ricetta {
 
     private String title;
     private String ingredientsList;
+    private String imgUrl;
     private String timeOfPreparation;
     private int portions;
     private String ricepDescription;
@@ -42,6 +43,13 @@ public class Ricetta {
         this.ingredientsList = ingredientsList;
     }
 
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
+    }
 
     public String getTimeOfPreparation() {
         return timeOfPreparation;
