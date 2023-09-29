@@ -66,5 +66,23 @@ public class RicetteController {
         return "redirect:/";
     }
 
+    @GetMapping("/create")
+    public String create(Model model) {
+        model.addAttribute("ricetta", new Ricetta());
+        return "/create";
+    }
+
+    @PostMapping("/create")
+    public String doCreate(@ModelAttribute("ricetta") Ricetta createRicetta, BindingResult bindingResult) {
+        System.out.println("title:" + createRicetta.getTitle());
+        System.out.println(bindingResult);
+        if (bindingResult.hasErrors()) {
+            return "/create";
+        }
+        createRicetta.setTitle(createRicetta.getTitle().toUpperCase());
+        ricettaRepository.save(createRicetta);
+        return "redirect:/";
+    }
+
 
 }
